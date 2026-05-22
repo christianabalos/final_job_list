@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Job;
+use App\Models\ListJobs;
 
 class JobController extends Controller
 {
     public function index()
     {
-        $jobs = Job::all();
+        $jobs = ListJobs::all();
         return view('jobs.index', compact('jobs'));
     }
 
@@ -20,7 +20,7 @@ class JobController extends Controller
 
     public function store(Request $request)
     {
-        Job::create([
+        ListJobs::create([
             'title' => $request->title,
             'description' => $request->description,
             'company' => $request->company,
@@ -33,13 +33,13 @@ class JobController extends Controller
 
     public function edit($id)
     {
-        $job = Job::findOrFail($id);
+        $job = ListJobs::findOrFail($id);
         return view('jobs.edit', compact('job'));
     }
 
     public function update(Request $request, $id)
     {
-        $job = Job::findOrFail($id);
+        $job = ListJobs::findOrFail($id);
 
         $job->update([
             'title' => $request->title,
@@ -54,7 +54,7 @@ class JobController extends Controller
 
     public function destroy($id)
     {
-        $job = Job::findOrFail($id);
+        $job = ListJobs::findOrFail($id);
         $job->delete();
 
         return redirect('/jobs');
