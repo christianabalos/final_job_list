@@ -7,9 +7,7 @@
 
 <h1>Job List</h1>
 
-<a href="/jobs/create">Add Job</a>
-
-<table border ="1" cellpadding="10">
+<table border="1" cellpadding="10">
     <tr>
         <th>ID</th>
         <th>Title</th>
@@ -17,7 +15,6 @@
         <th>Company</th>
         <th>Location</th>
         <th>Salary</th>
-        <th>Action</th>
     </tr>
 
     @foreach($jobs as $job)
@@ -28,13 +25,6 @@
         <td>{{ $job->company }}</td>
         <td>{{ $job->location }}</td>
         <td>{{ $job->salary }}</td>
-        <td>
-            <a href="/jobs/edit/{{ $job->id }}">Edit</a>
-
-            <a href="/jobs/delete/{{ $job->id }}">
-                Delete
-            </a>
-        </td>
     </tr>
     @endforeach
 
@@ -42,3 +32,4 @@
 
 </body>
 </html>
+
